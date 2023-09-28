@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="learning" parallel="tests" thread-count="6">
+	<listeners>
+		<listener class-name ="testnglearning.Listeners"/>
+	</listeners>
+	<test name="hello">
+		<classes>
+			<class name="testnglearning.test1hello" />
+			<methods>
+				<include name="test1" />
+			</methods>
+			<class name="testnglearning.test2hello" />
+		</classes>
+	</test>
+
+	<!-- Run with using exclude/include mothod -->
+	<test name="webapp">
+		<parameter name="URL" value="https://google.com" />
+		<parameter name="Apikey/Username" value="123456" />
+		<classes>
+			<class name="testnglearning.test4hello" />
+			<methods>
+				<include name="webapphome" />
+			</methods>
+		</classes>
+	</test>
+
+	<!-- Run with using keyword -->
+	<test name="loginapp">
+		<parameter name="URL" value="https://rahulshetty.com" />
+		<classes>
+			<class name="testnglearning.test3hello" />
+			<methods>
+				<exclude name="api.*" />
+			</methods>
+		</classes>
+	</test><!-- Test -->
+
+</suite> <!-- Suite -->
